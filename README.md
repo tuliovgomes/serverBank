@@ -2,6 +2,16 @@
 
 Um jeito fácil e rápido de começar uma API REST em Laravel 7.
 
+## Packages
+
+- [Dingo API](https://github.com/dingo/api)
+- [Fireable](https://github.com/envant/fireable)
+- [Laravel Auditing](http://www.laravel-auditing.com/)
+- [L5 Repository](https://github.com/andersao/l5-repository)
+- [Respect Validation](https://github.com/respect/validation)
+- [Laravel Permission](https://docs.spatie.be/laravel-permission/v3/introduction/)
+- [JWT Auth](https://jwt-auth.readthedocs.io/en/develop/)
+
 ## Instalação
 
 ```bash
