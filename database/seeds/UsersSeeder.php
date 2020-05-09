@@ -13,12 +13,12 @@ class UsersSeeder extends Seeder
     public function run()
     {
         $user = User::firstOrCreate([
-            'name' => 'Lucas Colette',
-            'email' => 'lucas@yampi.com.br',
+            'name' => 'Default User',
+            'email' => 'user@yampi.com.br',
             'password' => 'password',
         ]);
 
-        $user->password = bcrypt('yampi');
+        $user->password = bcrypt('password');
         $user->remember_token = custom_token('rt');
         $user->api_key = custom_token('ak');
         $user->email_verified_at = now();

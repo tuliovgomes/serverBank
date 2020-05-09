@@ -30,9 +30,4 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'pagarme' => [
-        'api_key' => env('PAGARME_API_KEY'),
-        'recipient_id' => env('PAGARME_RECEIPT_ID')
-    ],
-
 ];
