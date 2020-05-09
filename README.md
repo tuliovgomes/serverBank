@@ -5,8 +5,6 @@ Um jeito fácil e rápido de começar uma API REST em Laravel 7.
 ## Instalação
 
 ```bash
-git clone git@github.com:somosyampi/api-boilerplate.git my-project
-cd my-project
 cp env-example .env
 php artisan key:geneate
 php artisan jwt:secret
