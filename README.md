@@ -24,9 +24,6 @@ php artisan migrate
 php artisan db:seed --class=UsersSeeder
 ```
 
-E-mail: user@yampi.com.br
-Senha: `default`
-
 ## Autenticação
 
 Existem duas formas de autenticação na API: por Bearer Token ou API Key.
