@@ -1,0 +1,38 @@
+version: "3.7"
+
+services:
+  app:
+    build:
+      context: ../yoda/php/7.4
+    image: somosyampi/php:7.4
+    init: true
+    volumes:
+    - .:/app:delegated
+    networks:
+      yampi:
+      boilerplate:
+        aliases:
+        - boilerplate_app
+
+  nginx:
+    build:
+      context: ../yoda/http
+    image: somosyampi/http
+    volumes:
+    - .:/app:delegated
+    environment:
+      FPM_HOST: boilerplate_app
+    networks:
+      boilerplate:
+      yampi:
+        aliases:
+        - boilerplate.test
+    depends_on:
+    - app
+
+networks:
+  boilerplate:
+    name: yampi_boilerplate
+  yampi:
+    name: yampi
+    external: true

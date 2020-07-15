@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "somosyampi/api-boilerplate",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Um jeito fácil e rápido de começar uma API REST em Laravel 7.",
     "keywords": [
         "framework",
         "laravel"
