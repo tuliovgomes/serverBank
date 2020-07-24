@@ -15,8 +15,8 @@ Um jeito fácil e rápido de começar uma API REST em Laravel 7.
 ## Instalação
 
 ```bash
-cp env-example .env
-php artisan key:geneate
+cp .env.example .env
+php artisan key:generate
 php artisan jwt:secret
 ```
 
@@ -42,7 +42,7 @@ Existe uma rota pré-definida que retorna o token de autenticação baseado no e
 
 ```bash
 curl -X POST https://your-host.com/api/auth/login -H 'content-type: application/json' -d '{
-    "email": "user@yampi.com.br", 
+    "email": "user@yampi.com.br",
     "password": "password"
 }'
 ```
