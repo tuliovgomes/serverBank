@@ -36,20 +36,15 @@ class ApiErrorServiceProvider extends ServiceProvider
                         !$e instanceof \Symfony\Component\HttpKernel\Exception\HttpException
                     ) {
                         report($e);
-                        
+
                         return response()->make([
                             'message' => 'Internal server error',
-                            'status_code' => 500
+                            'status_code' => 500,
                         ], 500);
                     }
                 });
             }
         }
-    }
-
-    private function notFound()
-    {
-        return response()->make(['message' => 'Resource not found', 'status_code' => 404], 404);
     }
 
     /**
@@ -60,5 +55,10 @@ class ApiErrorServiceProvider extends ServiceProvider
     public function register()
     {
         //
+    }
+
+    private function notFound()
+    {
+        return response()->make(['message' => 'Resource not found', 'status_code' => 404], 404);
     }
 }

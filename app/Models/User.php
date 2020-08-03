@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Tymon\JWTAuth\Contracts\JWTSubject;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
@@ -12,7 +11,7 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
     use HasRoles;
-    
+
     protected $guard_name = 'api';
 
     /**

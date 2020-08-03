@@ -29,7 +29,7 @@ class ResponseListener
             $debugBar = app('debugbar');
             $event->content['_debugbar'] = $debugBar->getData();
         }
-        
+
         if (app()->bound('debugbar') &&
             app('debugbar')->isEnabled() &&
             app()->env == 'local' &&

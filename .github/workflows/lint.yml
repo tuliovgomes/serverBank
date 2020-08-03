@@ -1,0 +1,42 @@
+name: lint
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    name: Lint code
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-composer
+        with:
+          path: |
+            ~/.composer/cache/files
+            **/vendor
+          key: composer-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            composer-${{ hashFiles('composer.lock') }}
+            composer-
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: mbstring
+          coverage: pcov
+          tools: prestissimo, php-cs-fixer
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-interaction
+
+      - name: Execute linter
+        run: php-cs-fixer fix --dry-run --format=txt --diff --verbose

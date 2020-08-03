@@ -22,7 +22,6 @@ class EventServiceProvider extends ServiceProvider
         'Dingo\Api\Event\ResponseWasMorphed' => [
             'App\Listeners\ResponseListener',
         ],
-
     ];
 
     /**
