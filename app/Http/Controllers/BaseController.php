@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Dingo\Api\Routing\Helpers;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class BaseController extends Controller

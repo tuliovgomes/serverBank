@@ -14,7 +14,6 @@
 $api = app('Dingo\Api\Routing\Router');
 
 $api->version('1', function ($api) {
-
     $api->group(['prefix' => 'api'], function ($api) {
         $api->get('/ping', 'App\Http\Controllers\PingController@ping');
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Str;
 
 function custom_token($prefix = 'tk', $length = 40)
 {
-    $chars = $length - (strlen($prefix) + 1);
+    $chars = $length - (mb_strlen($prefix) + 1);
 
     return sprintf('%s_%s', $prefix, Str::random($chars));
 }
@@ -45,10 +45,10 @@ function cents_to_decimal($value)
 function ip()
 {
     $request = app('request');
-        
+
     if ($request->header('X-Forwarded-For')) {
         return $request->header('X-Forwarded-For');
     }
 
-    return isset($_SERVER['HTTP_CF_CONNECTING_IP']) ? $_SERVER['HTTP_CF_CONNECTING_IP'] : $_SERVER['REMOTE_ADDR'];
+    return $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'];
 }

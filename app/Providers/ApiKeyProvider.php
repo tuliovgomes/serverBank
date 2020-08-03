@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Dingo\Api\Routing\Route;
 use Dingo\Api\Contract\Auth\Provider;
 use JWTAuth;
-use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class ApiKeyProvider implements Provider
 {
@@ -26,7 +25,7 @@ class ApiKeyProvider implements Provider
 
         // Encontra o usuário pela Api Key
         $user = $this->user->findByApiKey($apiKey);
- 
+
         abort_if(!$user, 401, __('Unauthorized'));
 
         config(['audit.user' => [
@@ -36,8 +35,7 @@ class ApiKeyProvider implements Provider
         ]]);
 
         $token = JWTAuth::fromUser($user);
-        $authUser = JWTAuth::setToken($token)->toUser();
 
-        return $authUser;
+        return JWTAuth::setToken($token)->toUser();
     }
 }

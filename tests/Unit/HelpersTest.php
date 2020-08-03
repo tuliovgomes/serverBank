@@ -11,7 +11,7 @@ class HelpersTest extends TestCase
         $token = custom_token('test', 40);
 
         $this->assertStringStartsWith('test_', $token);
-        $this->assertEquals(40, strlen($token));
+        $this->assertEquals(40, mb_strlen($token));
     }
 
     public function test_required_to_sometimes()
@@ -25,7 +25,7 @@ class HelpersTest extends TestCase
         ];
 
         $newRules = required_to_sometimes($rules);
-  
+
         $this->assertEquals('sometimes|foo', $newRules['field']);
         $this->assertContains('sometimes', $newRules['another_field']);
     }

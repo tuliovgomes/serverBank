@@ -5,4 +5,4 @@ $api->group(['prefix' => 'auth'], function ($api) {
     $api->post('logout', 'App\Http\Controllers\AuthController@logout');
     $api->post('refresh', 'App\Http\Controllers\AuthController@refresh');
     $api->post('me', 'App\Http\Controllers\AuthController@me');
-}); 
+});
