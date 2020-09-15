@@ -60,4 +60,9 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function setApiSecretAttribute($value)
+    {
+        $this->attributes['api_secret'] = bcrypt($value);
+    }
 }

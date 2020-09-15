@@ -26,7 +26,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     /**
      * findByApiKey
      *
-     * Retorna o usuário pela Api Key
+     * Return the user model by api_key
      *
      * @param string $apiKey
      * @return User
