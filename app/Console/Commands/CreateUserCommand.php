@@ -38,7 +38,7 @@ class CreateUserCommand extends Command
      */
     public function handle()
     {
-        $userName = $this->argument('user') ? $this->argument('user') : \Str::random(20);
+        $userName = $this->argument('user') ? $this->argument('user') : $this->ask('What is your name?');
         $userEmail = $this->ask('What is the user e-mail?');
         $password = \Str::random(20);
 
