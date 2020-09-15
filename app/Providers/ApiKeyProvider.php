@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Dingo\Api\Routing\Route;
 use Dingo\Api\Contract\Auth\Provider;
@@ -24,10 +25,10 @@ class ApiKeyProvider implements Provider
 
         abort_if(!$apiKey || !$apiSecret, 401, __('Unauthorized'));
 
-        // Find user by api_secret
-        $user = $this->user->findByApiSecret($apiSecret);
+        // Find user by api_key
+        $user = $this->user->findByApiKey($apiKey);
 
-        abort_if(!$user || $user->api_key != $apiKey, 401, __('Unauthorized'));
+        abort_if(!$user || !Hash::check($apiSecret, $user->api_secret), 401, __('Unauthorized'));
 
         config(['audit.user' => [
             'resolver' => function () use ($user) {

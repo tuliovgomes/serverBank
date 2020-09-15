@@ -24,16 +24,16 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     }
 
     /**
-     * findByApiSecret
+     * findByApiKey
      *
-     * Return the user model by api_secret
+     * Return the user model by api_key
      *
-     * @param string $apiSecret
+     * @param string $apiKey
      * @return User
      */
-    public function findByApiSecret(string $apiSecret)
+    public function findByApiKey(string $apiKey)
     {
-        return $this->model->where('api_secret', $apiSecret)->firstOrfail();
+        return $this->model->where('api_key', $apiKey)->firstOrfail();
     }
 
     /**
