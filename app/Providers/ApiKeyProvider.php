@@ -24,7 +24,7 @@ class ApiKeyProvider implements Provider
 
         abort_if(!$apiKey || !$apiSecret, 401, __('Unauthorized'));
 
-        // Encontra o usuário pela Api Key
+        // Find user by api_secret
         $user = $this->user->findByApiSecret($apiSecret);
 
         abort_if(!$user || $user->api_key != $apiKey, 401, __('Unauthorized'));
