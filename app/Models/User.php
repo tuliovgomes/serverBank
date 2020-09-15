@@ -60,4 +60,14 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function setApiKeyAttribute($value)
+    {
+        $this->attributes['api_key'] = encrypt($value);
+    }
+
+    public function getApiKeyAttribute($value)
+    {
+        return decrypt($value);
+    }
 }

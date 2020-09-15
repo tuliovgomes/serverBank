@@ -21,6 +21,7 @@ class UsersSeeder extends Seeder
         $user->password = bcrypt('password');
         $user->remember_token = custom_token('rt');
         $user->api_key = custom_token('ak');
+        $user->api_secret = custom_token('as');
         $user->email_verified_at = now();
         $user->save();
     }

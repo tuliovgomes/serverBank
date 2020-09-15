@@ -20,13 +20,14 @@ class ApiKeyProvider implements Provider
     public function authenticate(Request $request, Route $route)
     {
         $apiKey = $request->input('api_key', $request->header('Api-Key'));
+        $apiSecret = $request->input('api_secret', $request->header('Api-Secret'));
 
-        abort_if(!$apiKey, 401, __('Unauthorized'));
+        abort_if(!$apiKey || !$apiSecret, 401, __('Unauthorized'));
 
         // Encontra o usuário pela Api Key
-        $user = $this->user->findByApiKey($apiKey);
+        $user = $this->user->findByApiSecret($apiSecret);
 
-        abort_if(!$user, 401, __('Unauthorized'));
+        abort_if(!$user || $user->api_key != $apiKey, 401, __('Unauthorized'));
 
         config(['audit.user' => [
             'resolver' => function () use ($user) {
