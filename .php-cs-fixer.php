@@ -18,13 +18,13 @@ $rules = [
     'cast_spaces' => true,
     'class_attributes_separation' => [
         'elements' => [
-            'method',
+            'method' => 'one',
+            'trait_import' => 'none',
         ],
     ],
     'class_definition' => [
         'single_line' => true,
     ],
-    'class_keyword_remove' => false,
     'combine_consecutive_issets' => true,
     'combine_consecutive_unsets' => true,
     'combine_nested_dirname' => true,
@@ -63,7 +63,7 @@ $rules = [
     ],
     'logical_operators' => true,
     'lowercase_cast' => true,
-    'lowercase_constants' => true,
+    'constant_case' => true,
     'lowercase_keywords' => true,
     'lowercase_static_reference' => true,
     'magic_constant_casing' => true,
@@ -96,7 +96,6 @@ $rules = [
             'parenthesis_brace_block',
             'square_brace_block',
             'throw',
-            'use_trait',
             'switch',
             'case',
             'default',
@@ -109,7 +108,7 @@ $rules = [
     'no_multiline_whitespace_around_double_arrow' => true,
     'no_null_property_initialization' => true,
     'no_short_bool_cast' => true,
-    'no_short_echo_tag' => true,
+    'echo_tag_syntax' => true,
     'no_singleline_whitespace_before_semicolons' => true,
     'no_spaces_after_function_name' => true,
     'no_spaces_around_offset' => true,
@@ -168,7 +167,7 @@ $rules = [
     'switch_case_space' => true,
     'ternary_operator_spaces' => true,
     'ternary_to_null_coalescing' => true,
-    'trailing_comma_in_multiline_array' => true,
+    'trailing_comma_in_multiline' => true,
     'trim_array_spaces' => true,
     'unary_operator_spaces' => true,
     'visibility_required' => true,
@@ -182,7 +181,7 @@ $finder = Finder::create()
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
 
-return Config::create()
+return (new PhpCsFixer\Config())->setRules($rules)
     ->setRiskyAllowed(true)
     ->setRules($rules)
     ->setLineEnding(PHP_EOL)
