@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Third Party Services
@@ -35,5 +34,4 @@ return [
         'url' => env('YAMPI_API_URL', 'http://api.test'),
         'token' => env('YAMPI_API_TOKEN'),
     ],
-
 ];
