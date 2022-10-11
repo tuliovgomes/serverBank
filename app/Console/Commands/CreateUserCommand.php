@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 
 class CreateUserCommand extends Command
 {
@@ -40,7 +41,7 @@ class CreateUserCommand extends Command
     {
         $userName = $this->argument('user') ? $this->argument('user') : $this->ask('What is your name?');
         $userEmail = $this->ask('What is the user e-mail?');
-        $password = \Str::random(20);
+        $password = Str::random(20);
 
         $user = User::firstOrCreate([
             'name' => $userName,

@@ -1,6 +1,6 @@
 # API Boilerplate
 
-Um jeito fácil e rápido de começar uma API REST em Laravel 7.
+Um jeito fácil e rápido de começar uma API REST em Laravel 9.
 
 ## Packages
 
@@ -11,25 +11,38 @@ Um jeito fácil e rápido de começar uma API REST em Laravel 7.
 - [Respect Validation](https://github.com/respect/validation)
 - [Laravel Permission](https://docs.spatie.be/laravel-permission/v3/introduction/)
 - [JWT Auth](https://jwt-auth.readthedocs.io/en/develop/)
+- [Laravel Sanctum](https://laravel.com/docs/9.x/sanctum)
+
+## Usando em um novo projeto
+
+Para iniciar um novo projeto a partir desse repositório, copie a pasta e altere tudo relacionado a boilerplate para o nome do seu projeto, nos arquivos `.env.example` e `docker-compose.yml`.
+
+Pode ser interessante também remover arquivos de frontend se o projeto for somente backend, como `vite.config.js`, a pasta `resources`, e algumas env vars do `.env.example`.
 
 ## Instalação
 
+Rode na pasta do projeto:
+
 ```bash
+yoda start
+
+yoda composer install
+
 cp .env.example .env
-php artisan key:generate
-php artisan jwt:secret
+yoda artisan key:generate
+yoda artisan jwt:secret
 ```
 
 2. Configure as credenciais do banco de dados e rode:
 
 ```bash
-php artisan migrate
+yoda artisan migrate
 ```
 
 3. Usuário default
 
 ```bash
-php artisan db:seed --class=UsersSeeder
+yoda artisan db:seed
 ```
 
 ## Autenticação
