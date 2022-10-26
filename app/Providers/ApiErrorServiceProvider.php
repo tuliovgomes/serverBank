@@ -29,7 +29,7 @@ class ApiErrorServiceProvider extends ServiceProvider
 
         if (app()->env == 'production') {
             if (!config('app.debug')) {
-                $handler->register(function (\Exception $e) {
+                $handler->register(function (\Throwable $e) {
                     if (!$e instanceof \Dingo\Api\Exception\ResourceException &&
                         !$e instanceof \Symfony\Component\HttpKernel\Exception\BadRequestHttpException &&
                         !$e instanceof \Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException &&
