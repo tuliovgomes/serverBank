@@ -20,7 +20,7 @@ class RequestIntegrity
     {
         return sodium_crypto_sign_verify_detached(
             sodium_base642bin($signature, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
-            \Str::lower($this->method()).';user;'.$data,
+            \Str::lower(request()->getMethod()).';user;'.json_encode($data),
             sodium_hex2bin(config('service.client-bank.public_key'))
         );
     }
