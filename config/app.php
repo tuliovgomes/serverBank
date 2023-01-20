@@ -122,6 +122,9 @@ return [
 
     'key' => env('APP_KEY'),
 
+    'public_key' => env('SERVER_PRIVATE_KEY'),
+    'private_key' => env('SERVER_PUBLIC_KEY'),
+
     'cipher' => 'AES-256-CBC',
 
     /*

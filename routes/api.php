@@ -17,13 +17,11 @@ $api->version('1', function ($api) {
     $api->group(['prefix' => 'v1'], function ($api) {
         $api->get('/ping', 'App\Http\Controllers\PingController@ping');
 
-        require 'auth.php';
 
-        $api->group(['middleware' => 'api.auth'], function ($api) {
-            // Rotas autenticadas.
-            $api->get('protected', function () {
-                return 'Hello.';
-            });
+        $api->group(['middleware' => 'request.integrity'], function ($api) {
+            $api->get('/user', 'App\Http\Controllers\UserController@index');
+            $api->post('/user', 'App\Http\Controllers\UserController@create');
         });
+
     });
 });

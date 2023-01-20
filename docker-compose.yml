@@ -12,7 +12,7 @@ services:
       yampi:
       boilerplate:
         aliases:
-        - api_boilerplate_app
+        - server_bank
 
   nginx:
     build:
@@ -21,18 +21,18 @@ services:
     volumes:
     - .:/app:delegated
     environment:
-      FPM_HOST: api_boilerplate_app
+      FPM_HOST: server_bank
     networks:
       boilerplate:
       yampi:
         aliases:
-        - api-boilerplate.test
+        - server_bank.test
     depends_on:
     - app
 
 networks:
   boilerplate:
-    name: yampi_boilerplate
+    name: server_bank
   yampi:
     name: yampi
     external: true

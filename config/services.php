@@ -34,4 +34,11 @@ return [
         'url' => env('YAMPI_API_URL', 'http://api.test'),
         'token' => env('YAMPI_API_TOKEN'),
     ],
+
+    'client-bank' => [
+        'public_key' => env('CLIENTBANK_PUBLIC_KEY'),
+        'organization_id' => env('CLIENTBANK_ORGANIZATION_ID'),
+        'project_id' => env('CLIENTBANK_PROJECT_ID'),
+    ],
+
 ];

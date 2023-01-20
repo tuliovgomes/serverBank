@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.0.2",
         "api-ecosystem-for-laravel/dingo-api": "^4.0",
+        "beyondcode/expose": "^2.5",
         "envant/fireable": "^1.0",
         "fideloper/proxy": "^4.2",
         "guzzlehttp/guzzle": "^7.2",
